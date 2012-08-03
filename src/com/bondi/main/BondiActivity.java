@@ -3,13 +3,14 @@ package com.bondi.main;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+import org.apache.cordova.*;
 
-public class BondiActivity extends Activity {
+public class BondiActivity extends DroidGap {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.bondi_activity);
+        super.loadUrl("file:///android_asset/www/index.html");
     }
 
     @Override
