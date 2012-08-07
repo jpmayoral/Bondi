@@ -1,56 +1,92 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <!--[if lt IE 7]> <html lang="en-us" class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>    <html lang="en-us" class="lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>    <html lang="en-us" class="lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html lang="en-us"> <!--<![endif]-->
 <head>
 	<meta charset="utf-8">
-
 	<title>Home - Cuánto Falta v-1.0</title>
-
-	<meta name="viewport" content="width=device-width, initial-sclae=1">
-
-	<!-- Archivos CSS -->
-	<link rel="stylesheet" href="css/normalize/min/normalize.css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css" />
 	<link rel="stylesheet" href="css/jquery-mobile-1.1.1/jquery.mobile-1.1.1.css" />
-	<!--<link rel="stylesheet" href="css/style.css" />-->
-
+	<link rel="stylesheet" href="css/mobile.css" />
+	<script src="js/modernizr-2.0.6/modernizr.min.js"></script>
+	<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
 	<script src="js/jquery-1.7.2/jquery-1.7.2.min.js"></script>
+	<script src="js/extras.js"></script>
+	<script src="js/jquery-ui-map-3.0/jquery.ui.map.js"></script>
+	<script src="js/jquery-ui-map-3.0/jquery.ui.map.extensions.js"></script>
 	<script src="js/jquery-mobile-1.1.1/jquery.mobile-1.1.1.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			$('#map_canvas').gmap('getCurrentPosition', function(position, status) {
+				if ( status === 'OK' ) {
+					var clientPosition = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+					$('#map_canvas').gmap('addMarker', {'position': clientPosition,'bounds': true});
+				}
+			});   
+
+			$('#myLocation').live("pageshow", function() {
+                $('#map_canvas').gmap('refresh');
+        	});
+
+		});
+	</script>
 </head>
 
 <body>
-	<!-- page: start -->
-	<div data-role="page">
-		<!-- header: start -->
+	<div data-role="page" id="myLocation">
 		<div data-role="header" data-position="fixed">
-			<a href="#" data-icon="home">Salir</a>
+			<a href="#myLocation" data-icon="home">Home</a>
 			<h1>¿Cuánto Falta? - Home (beta version)</h1>
 			<a href="#" data-icon="gear" data-theme="b">Mi Perfil</a>
-			<!-- /navbar: start -->
+		</div>
+		<div data-role="content">
+				<div class="item rounded dark">
+					<div id="map_canvas" class="map rounded"></div>
+				</div>								
+		</div>
+		<div data-role="footer" data-position="fixed">
 			<div data-role="navbar" data-iconpos="top">
 				<ul>
-					<li><a href="mi_ubicacion.html" data-icon="check">Mi Ubicación</a></li>
-					<li><a href="#" data-icon="search">¿Adónde vas?</a></li>
+					<li><a href="#myLocation" data-icon="check">Mi Ubicación</a></li>
+					<li><a href="#whereGo" data-icon="search">¿Adónde vas?</a></li>
 					<li><a href="#" data-icon="star">Favoritos</a></li>
 				</ul>
 			</div>
-			<!-- /navbar: end -->
 		</div>
-		<!-- header: end -->
-		<!-- content: start -->
-		<div data-role="content">
-			<p>Página Principal</p>
-		</div>
-		<!-- content: end -->
-
-		<!-- content: start -->
-		<div data-role="footer" data-position="fixed">
-			<p>&copy; copyright 2012. Bondi v-1.0</p>
-		</div>
-		<!-- content: end -->
-
 	</div>
-	<!-- page: end -->
+
+	<div data-role="page" id="whereGo">
+		<div data-role="header" data-position="fixed">
+			<a href="#myLocation" data-icon="home">Home</a>
+			<h1>¿Cuánto Falta? - Home (beta version)</h1>
+			<a href="#" data-icon="gear" data-theme="b">Mi Perfil</a>
+		</div>
+		<div data-role="content">
+				<div data-role="fieldcontain" class="ui-hide-label">
+					<label for="toDirection">Direcci&oacute;n destino:</label>
+					<input type="text" name="toDirection" id="toDirection" value="" placeholder="Direcci&oacute;n destino"/>
+				</div>
+		</div>
+		<div data-role="content">
+				<div data-role="fieldcontain" class="ui-hide-label">
+					<label for="toHouseNumber">Atlura:</label>
+					<input type="text" name="toHouseNumber" id="toHouseNumber" value="" placeholder="Altura"/>
+				</div>
+		</div>
+		<input type="button" value="Buscar"  data-icon="search"/>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar" data-iconpos="top">
+				<ul>
+					<li><a href="#myLocation" data-icon="check">Mi Ubicación</a></li>
+					<li><a href="#whereGo" data-icon="search">¿Adónde vas?</a></li>
+					<li><a href="#" data-icon="star">Favoritos</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
