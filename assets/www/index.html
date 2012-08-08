@@ -16,17 +16,31 @@
 	<script src="js/extras.js"></script>
 	<script src="js/jquery-ui-map-3.0/jquery.ui.map.js"></script>
 	<script src="js/jquery-ui-map-3.0/jquery.ui.map.extensions.js"></script>
+	<script src="js/jquery-ui-map-3.0/jquery.ui.map.overlays.js"></script>
 	<script src="js/jquery-mobile-1.1.1/jquery.mobile-1.1.1.js"></script>
 
 	<script type="text/javascript">
 		$(document).ready(function() {
-
+			
 			$('#map_canvas').gmap('getCurrentPosition', function(position, status) {
-				if ( status === 'OK' ) {
+				if (status === 'OK' ) {
 					var clientPosition = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-					$('#map_canvas').gmap('addMarker', {'position': clientPosition,'bounds': true});
+					$('#map_canvas').gmap('addMarker', {'position': clientPosition, 'bounds': false}, function(){
+						$("#map_canvas").gmap("option", "center", clientPosition);
+						$('#map_canvas').gmap('option', 'zoom', 16);
+					}).click(function() {
+                			$('#map_canvas').gmap('openInfoWindow', { 'content': 'Mi posición' }, this);
+        			});                                                                                                  
+					$('#map_canvas').gmap('addShape', 'Circle', { 
+						'strokeWeight': 0, 
+						'fillColor': "#008595", 
+						'fillOpacity': 0.25, 
+						'center': clientPosition, 
+						'radius': 25, 
+						'clickable': false 
+					});
 				}
-			});   
+			});
 
 			$('#myLocation').live("pageshow", function() {
                 $('#map_canvas').gmap('refresh');
@@ -88,5 +102,6 @@
 			</div>
 		</div>
 	</div>
+
 </body>
 </html>
