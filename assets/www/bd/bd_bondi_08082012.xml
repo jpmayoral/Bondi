@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Db flnm="bd_bondi" nm="bondi" ver="1.3.4">
+<Db flnm="bd_bondi_08082012" nm="bondi" ver="1.3.4">
   <VerLbl/>
   <VerNotes/>
   <DefTblOpts/>
@@ -34,6 +34,7 @@
         <CdTb mn="1" nm="favoritos" oe="0" sch="public" zr="1"/>
         <ClPr cdCl="usuario_id" prCl="id"/>
       </Fk>
+      <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="grupos_tabgral">
@@ -51,6 +52,7 @@
       <Cl au="0" df="" nm="updated_at" nu="0">
         <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
+      <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="historial">
@@ -74,6 +76,7 @@
       <Cl au="0" df="" nm="updated_at" nu="1">
         <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
+      <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="lineasbondi">
@@ -100,6 +103,7 @@
       <Cl au="0" df="" nm="updated_at" nu="1">
         <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
+      <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="localidades">
@@ -134,6 +138,7 @@
       <Idx clu="0" nm="provincias_id" unq="0">
         <ClNs>provincias_id</ClNs>
       </Idx>
+      <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="perfiles">
@@ -162,6 +167,7 @@
       <Idx clu="0" nm="perfiles_tabgral_id" unq="0">
         <ClNs>estado</ClNs>
       </Idx>
+      <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="provincias">
@@ -179,6 +185,7 @@
       <Cl au="0" df="" nm="updated_at" nu="0">
         <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
+      <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="recorridos">
@@ -210,6 +217,7 @@
         <CdTb mn="1" nm="recorridos" oe="0" sch="public" zr="1"/>
         <ClPr cdCl="lineasbondi_id" prCl="_id"/>
       </Fk>
+      <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="tabgral">
@@ -238,6 +246,7 @@
       <Idx clu="0" nm="grupos_tabgral_id" unq="0">
         <ClNs>grupos_tabgral_id</ClNs>
       </Idx>
+      <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
     <Tbl UsSo="1" nm="usuarios">
@@ -326,6 +335,7 @@
       <Idx clu="0" nm="usuarios_provincias_id" unq="0">
         <ClNs>provincias_id</ClNs>
       </Idx>
+      <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
     <CustomTypes/>
