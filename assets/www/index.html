@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> <html lang="en-us"> <!--<![endif]-->
 <head>
 	<meta charset="utf-8">
-	<title>Home - Cuánto Falta v-1.0</title>
+	<title>Cu&aacute;nto Falta v-1.0 (Beta Version)</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="css/style.css" />
 	<link rel="stylesheet" href="css/jquery-mobile-1.1.1/jquery.mobile-1.1.1.css" />
@@ -29,7 +29,7 @@
 						$("#map_canvas").gmap("option", "center", clientPosition);
 						$('#map_canvas').gmap('option', 'zoom', 16);
 					}).click(function() {
-                			$('#map_canvas').gmap('openInfoWindow', { 'content': 'Mi posición' }, this);
+                			$('#map_canvas').gmap('openInfoWindow', { 'content': 'Mi posici&oacute;n' }, this);
         			});                                                                                                  
 					$('#map_canvas').gmap('addShape', 'Circle', { 
 						'strokeWeight': 0, 
@@ -48,13 +48,44 @@
 
 		});
 	</script>
+
 </head>
 
 <body>
-	<div data-role="page" id="myLocation">
+
+	<!-- Home: start -->
+	<div data-role="page" id="home" data-title="Home">
 		<div data-role="header" data-position="fixed">
-			<a href="#myLocation" data-icon="home">Home</a>
-			<h1>¿Cuánto Falta? - Home (beta version)</h1>
+			<a href="#home" data-icon="home">Home</a>
+			<h1>¿Cu&aacute;nto Falta? - Home (Beta Version)</h1>
+			<a href="#" data-icon="gear" data-theme="b">Mi Perfil</a>
+		</div>
+
+		<div data-role="content">
+				<h1>¿Cu&aacute;nto Falta? App</h1>
+				<p>Con esta aplicaci&oacute;n vas a poder saber cu&aacute;nto falta para que llegue
+					el pr&oacute;ximo colectivo que tenés que tomar para llegar a destino.</p>
+				<p>Para obtener la info, es fundamental tener activado el GPS.
+				En la opci&oacute;n ¿Ad&oacute;nde Vas?, indica el destino al cual queres llegar</p>
+		</div>
+		
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar" data-iconpos="top">
+				<ul>
+					<li><a href="#myLocation" data-icon="check">Mi Ubicaci&oacute;n</a></li>
+					<li><a href="#destination" data-icon="search">¿Ad&oacute;nde vas?</a></li>
+					<li><a href="#favorites" data-icon="star">Favoritos</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- Home: end -->
+
+	<!-- My Location: start -->
+	<div data-role="page" id="myLocation" data-title="Mi Ubicaci&oacute;n">
+		<div data-role="header" data-position="fixed">
+			<a href="#home" data-icon="home">Home</a>
+			<h1>¿Cu&aacute;nto Falta? - Home (Beta Version)</h1>
 			<a href="#" data-icon="gear" data-theme="b">Mi Perfil</a>
 		</div>
 		<div data-role="content">
@@ -65,43 +96,72 @@
 		<div data-role="footer" data-position="fixed">
 			<div data-role="navbar" data-iconpos="top">
 				<ul>
-					<li><a href="#myLocation" data-icon="check">Mi Ubicación</a></li>
-					<li><a href="#whereGo" data-icon="search">¿Adónde vas?</a></li>
-					<li><a href="#" data-icon="star">Favoritos</a></li>
+					<li><a href="#myLocation" data-icon="check">Mi Ubicaci&oacute;n</a></li>
+					<li><a href="#destination" data-icon="search">¿Ad&oacute;nde vas?</a></li>
+					<li><a href="#favorites" data-icon="star">Favoritos</a></li>
 				</ul>
 			</div>
 		</div>
 	</div>
+	<!-- My Location: end -->
 
-	<div data-role="page" id="whereGo">
+	<!-- Destination: start -->
+	<div data-role="page" id="destination" data-title="¿Ad&oacute;nde Vas?">
 		<div data-role="header" data-position="fixed">
-			<a href="#myLocation" data-icon="home">Home</a>
-			<h1>¿Cuánto Falta? - Home (beta version)</h1>
+			<a href="#home" data-icon="home">Home</a>
+			<h1>¿Cu&aacute;nto Falta? - Home (Beta Version)</h1>
 			<a href="#" data-icon="gear" data-theme="b">Mi Perfil</a>
 		</div>
 		<div data-role="content">
 				<div data-role="fieldcontain" class="ui-hide-label">
-					<label for="toDirection">Direcci&oacute;n destino:</label>
-					<input type="text" name="toDirection" id="toDirection" value="" placeholder="Direcci&oacute;n destino"/>
+					<label for="address">Calle:</label>
+					<input type="text" name="address" id="address" value="" placeholder="Calle"/>
 				</div>
 		</div>
 		<div data-role="content">
 				<div data-role="fieldcontain" class="ui-hide-label">
-					<label for="toHouseNumber">Atlura:</label>
-					<input type="text" name="toHouseNumber" id="toHouseNumber" value="" placeholder="Altura"/>
+					<label for="number">Atlura:</label>
+					<input type="text" name="number" id="number" value="" placeholder="Altura"/>
 				</div>
 		</div>
 		<input type="button" value="Buscar"  data-icon="search"/>
 		<div data-role="footer" data-position="fixed">
 			<div data-role="navbar" data-iconpos="top">
 				<ul>
-					<li><a href="#myLocation" data-icon="check">Mi Ubicación</a></li>
-					<li><a href="#whereGo" data-icon="search">¿Adónde vas?</a></li>
-					<li><a href="#" data-icon="star">Favoritos</a></li>
+					<li><a href="#myLocation" data-icon="check">Mi Ubicaci&oacute;n</a></li>
+					<li><a href="#destination" data-icon="search">¿Ad&oacute;nde vas?</a></li>
+					<li><a href="#favorites" data-icon="star">Favoritos</a></li>
 				</ul>
 			</div>
 		</div>
 	</div>
+	<!-- Destination: end -->
+
+	<!-- Favorites: start -->
+	<div data-role="page" id="favorites" data-title="Favoritos">
+		<div data-role="header" data-position="fixed">
+			<a href="#home" data-icon="home">Home</a>
+			<h1>¿Cu&aacute;nto Falta? - Home (Beta Version)</h1>
+			<a href="#" data-icon="gear" data-theme="b">Mi Perfil</a>
+		</div>
+		<div data-role="content">		
+			<ul data-role="listview" data-split-icon="gear"data-split-theme="d">
+				<li><a href="#">Casa</a></li>
+				<li><a href="#">Trabajo</a></li>
+				<li><a href="#">Shopping</a></li>
+			</ul>
+		</div>	
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar" data-iconpos="top">
+				<ul>
+					<li><a href="#myLocation" data-icon="check">Mi Ubicaci&oacute;n</a></li>
+					<li><a href="#destination" data-icon="search">¿Ad&oacute;nde vas?</a></li>
+					<li><a href="#favorites" data-icon="star">Favoritos</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- Favorites: end -->
 
 </body>
 </html>
