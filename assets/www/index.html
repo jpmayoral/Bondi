@@ -27,10 +27,11 @@
 					var clientPosition = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 					$('#map_canvas').gmap('addMarker', {'position': clientPosition, 'bounds': false}, function(){
 						$("#map_canvas").gmap("option", "center", clientPosition);
-						$('#map_canvas').gmap('option', 'zoom', 16);
+						$('#map_canvas').gmap('option', 'zoom', 15);
 					}).click(function() {
-                			$('#map_canvas').gmap('openInfoWindow', { 'content': 'Mi posici&oacute;n' }, this);
+                			$('#map_canvas').gmap('openInfoWindow', { 'content': 'Est&aacute;s en: '+clientPosition }, this);
         			});                                                                                                  
+					
 					$('#map_canvas').gmap('addShape', 'Circle', { 
 						'strokeWeight': 0, 
 						'fillColor': "#008595", 
@@ -144,11 +145,26 @@
 			<h1>¿Cu&aacute;nto Falta? - Home (Beta Version)</h1>
 			<a href="#" data-icon="gear" data-theme="b">Mi Perfil</a>
 		</div>
-		<div data-role="content">		
+		<div data-role="content-primary">		
 			<ul data-role="listview" data-split-icon="gear"data-split-theme="d">
-				<li><a href="#">Casa</a></li>
-				<li><a href="#">Trabajo</a></li>
-				<li><a href="#">Shopping</a></li>
+				<li><a href="#">
+					<img src="css/icons/icon-house.png" />
+					<h3>Casa</h3>
+					<p>Debe definir la ubicaci&oacute;n en el mapa</p>
+					</a><a href="ubicacionCasa.html" data-rel="dialog">Marcar Ubicaci&oacute;n
+				</a></li>
+				<li><a href="#">
+					<img src="css/icons/icon-job.png" />
+					<h3>Trabajo</h3>
+					<p>Debe definir la ubicaci&oacute;n en el mapa</p>
+					</a><a href="ubicacionCasa.html" data-rel="dialog">Marcar Ubicaci&oacute;n
+				</a></li>
+				<li><a href="#">
+					<img src="css/icons/icon-shopping.png" />
+					<h3>Shopping</h3>
+					<p>Debe definir la ubicaci&oacute;n en el mapa</p>
+					</a><a href="ubicacionCasa.html" data-rel="dialog" data-transition="slideup">Marcar Ubicaci&oacute;n
+				</a></li>
 			</ul>
 		</div>	
 		<div data-role="footer" data-position="fixed">
